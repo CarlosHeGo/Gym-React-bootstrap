@@ -1,7 +1,9 @@
 import React from "react";
 import { Container, Col, Row, Card } from "react-bootstrap";
+import ReservasClases from "./ReservasClases";
 
-function CardClases({clases}) {
+function CardClases({ clases }) {
+
   return (
     <Container>
       <Row>
@@ -13,7 +15,9 @@ function CardClases({clases}) {
                 <Card.Title>{clase.nombre}</Card.Title>
                 <Card.Text><strong>Descripción: </strong>{clase.descripcion}</Card.Text>
               </Card.Body>
+              <ReservasClases clase={clase} />
             </Card>
+
           </Col>
         ))}
       </Row>
