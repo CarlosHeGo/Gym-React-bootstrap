@@ -1,8 +1,8 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import Navegacion from "./Navegacion";
-import CardClases from "./CardClases";
-import CardMaquinas from "./CardMaquinas";
+import Navegacion from "./Components/Navegacion";
+import CardClases from "./Components/CardClases";
+import CardMaquinas from "./Components/CardMaquinas";
 
 function App() {
   const [maquinas, setMaquinas] = useState([]);
