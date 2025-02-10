@@ -6,7 +6,7 @@ import CardClases from "./Components/CardClases";
 import CardMaquinas from "./Components/CardMaquinas";
 import Contacto from "./Components/Contacto";
 import { ServiciosProvider } from "./Components/ServiciosProvider";
-import AreaCliente from "./Components/AreaClientes";
+import AreaCliente from "./Components/AreaCliente";
 
 function App() {
   return (

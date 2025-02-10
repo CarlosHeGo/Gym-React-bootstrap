@@ -5,7 +5,9 @@ function Navegacion() {
   return (
     <Navbar bg="dark" expand="lg" variant="dark">
       <Container>
-        <Navbar.Brand as={Link} to="/">Nombre gym</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          <img alt="Logo gimnasio" src="/logoGym.png" width={40} height={40} style={{ marginRight: "4%" }} />
+          Ilon Mots GYM</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

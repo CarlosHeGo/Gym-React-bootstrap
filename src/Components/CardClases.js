@@ -1,18 +1,12 @@
-import React, { useState } from "react";
-import {
-  Container,
-  Col,
-  Row,
-  Card,
-  Button,
-  Modal,
-  ListGroup,
-} from "react-bootstrap";
+import React, { useState, useContext } from "react";
+import { Container, Col, Row, Card, Button, Modal, ListGroup } from "react-bootstrap";
+import { ServiciosContext } from "./ServiciosProvider";
 
-function CardClases({ clases }) {
-  const [selectedClase, setSelectedClase] = useState(null); // Máquina seleccionada
+const CardClases = () => {
+  const { clases, reservarClase } = useContext(ServiciosContext);
+  const [selectedClase, setSelectedClase] = useState(null);
   const [show, setShow] = useState(false);
-  const [claseReservada, setClaseReservada] = useState(clases);
+  const [clasesActualizadas, setClasesActualizadas] = useState([]);
 
   const handleClose = () => {
     setShow(false);
@@ -21,32 +15,36 @@ function CardClases({ clases }) {
 
   const handleShow = (clase) => {
     setSelectedClase(clase);
+    setClasesActualizadas(clase.horario);
     setShow(true);
   };
 
-  const handleReserva = (claseID, diaId, horasId) => {
-    const clasesDisponibles = claseReservada.map((clase) => {
-      if (clase.id === claseID) {
-        const dia = clase.horario.find((d) => d.dia === diaId);
-        if (dia) {
-          const hora = dia.horas.find((h) => h.hora === horasId);
-          if (hora && hora.plazas > 0) {
-            hora.plazas -= 1;
-          }
-        }
-      }
-      return clase;
-    });
-    setClaseReservada([...clasesDisponibles]);
+  const handleReserva = (claseID, diaId, horaId) => {
+    reservarClase(claseID, diaId, horaId);
+    setClasesActualizadas((prevHorario) =>
+      prevHorario.map((dia) =>
+        dia.dia === diaId
+          ? {
+              ...dia,
+              horas: dia.horas.map((hora) =>
+                hora.hora === horaId && hora.plazas > 0
+                  ? { ...hora, plazas: hora.plazas - 1 }
+                  : hora
+              ),
+            }
+          : dia
+      )
+    );
   };
 
   return (
     <Container>
+      <h2 className="text-center py-3">Clases Disponibles</h2>
       <Row>
-        {claseReservada.map((clase) => (
+        {clases.map((clase) => (
           <Col key={clase.id} md={3} className="mb-4">
             <Card bg="dark" text="white">
-              <Card.Img variant="top" src={clase.foto} alt={clase.nombre} />
+              <Card.Img variant="top" src={`/${clase.foto}`} alt={clase.nombre} />
               <Card.Body>
                 <Card.Title>{clase.nombre}</Card.Title>
                 <Card.Text>
@@ -68,7 +66,7 @@ function CardClases({ clases }) {
             <Modal.Title>Horarios de {selectedClase.nombre}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {selectedClase.horario.map((dia) => (
+            {clasesActualizadas.map((dia) => (
               <div key={dia.dia} className="mb-3">
                 <h5>{dia.dia}</h5>
                 <ListGroup>
@@ -83,9 +81,7 @@ function CardClases({ clases }) {
                         variant="success"
                         size="sm"
                         disabled={hora.plazas === 0}
-                        onClick={() =>
-                          handleReserva(selectedClase.id, dia.dia, hora.hora)
-                        }
+                        onClick={() => handleReserva(selectedClase.id, dia.dia, hora.hora)}
                       >
                         Reservar
                       </Button>
@@ -104,5 +100,6 @@ function CardClases({ clases }) {
       )}
     </Container>
   );
-}
+};
+
 export default CardClases;
