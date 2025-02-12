@@ -42,21 +42,15 @@ const CardClases = () => {
       <h2 className="text-center py-3">Clases Disponibles</h2>
       <Row>
         {clases.map((clase) => (
-          <Col key={clase.id} md={3} className="mb-4">
-            <Card bg="dark" text="white">
-              <Card.Img variant="top" src={`/${clase.foto}`} alt={clase.nombre}/>
-              <Card.ImgOverlay>
-              <Card.Body style={{backgroundColor:"#00000050"}}>
-                <Card.Title>{clase.nombre}</Card.Title>
-                <Card.Text>
-                  <strong>Descripción: </strong>
+          <Col key={clase.id} md={3} sm={4} className="mb-4">
+            <Card bg="dark" text="white" style={{height:"100%"}}>
+              <Card.Img variant="top" src={`/${clase.foto}`} alt={clase.nombre} className="img-fluid" style={{height:"100%"}}/>
+                <Card.Title className="mt-2" style={{textAlign:"center"}}>{clase.nombre}</Card.Title>
+                <Card.Text style={{margin:"4%" , textAlign:"justify"}}>
                   {clase.descripcion}
+                  <br/>
                 </Card.Text>
-              </Card.Body>
-              <Button variant="primary" className="mt-4" onClick={() => handleShow(clase)}>
-                Horarios
-              </Button>
-              </Card.ImgOverlay>
+                <Button style={{width:"100%"}} variant="primary" onClick={() => handleShow(clase)}>Horarios</Button>
             </Card>
           </Col>
         ))}

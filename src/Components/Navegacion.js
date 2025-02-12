@@ -6,13 +6,7 @@ function Navegacion() {
     <Navbar bg="dark" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          <img
-            alt="Logo gimnasio"
-            src="/logoGym.png"
-            width={40}
-            height={40}
-            style={{ marginRight: "4%" }}
-          />
+          <img alt="Logo gimnasio" src="/logoGym.png" width={40} height={40} style={{ marginRight: "10%" }}/>
           Gimbo
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
