@@ -42,7 +42,7 @@ const CardClases = () => {
       <h2 className="text-center py-3">Clases Disponibles</h2>
       <Row>
         {clases.map((clase) => (
-          <Col key={clase.id} md={3} sm={4} className="mb-4">
+          <Col key={clase.id} md={3} className="mb-4">
             <Card bg="dark" text="white" style={{height:"100%"}}>
               <Card.Img variant="top" src={`/${clase.foto}`} alt={clase.nombre} className="img-fluid" style={{height:"100%"}}/>
                 <Card.Title className="mt-2" style={{textAlign:"center"}}>{clase.nombre}</Card.Title>
