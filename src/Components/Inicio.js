@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 function Inicio() {
   return (
-    <Carousel data-bs-theme="light">
+    <Carousel data-bs-theme="light" controls={false}>
       <Carousel.Item interval={2000}>
         <img
           className="d-block w-100"
