@@ -44,17 +44,19 @@ const CardClases = () => {
         {clases.map((clase) => (
           <Col key={clase.id} md={3} className="mb-4">
             <Card bg="dark" text="white">
-              <Card.Img variant="top" src={`/${clase.foto}`} alt={clase.nombre} />
-              <Card.Body>
+              <Card.Img variant="top" src={`/${clase.foto}`} alt={clase.nombre}/>
+              <Card.ImgOverlay>
+              <Card.Body style={{backgroundColor:"#00000050"}}>
                 <Card.Title>{clase.nombre}</Card.Title>
                 <Card.Text>
                   <strong>Descripción: </strong>
                   {clase.descripcion}
                 </Card.Text>
               </Card.Body>
-              <Button variant="primary" onClick={() => handleShow(clase)}>
+              <Button variant="primary" className="mt-4" onClick={() => handleShow(clase)}>
                 Horarios
               </Button>
+              </Card.ImgOverlay>
             </Card>
           </Col>
         ))}

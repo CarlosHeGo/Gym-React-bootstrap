@@ -13,29 +13,22 @@ function Navegacion() {
             height={40}
             style={{ marginRight: "4%" }}
           />
-          Ilon Mots GYM
+          Gimbo
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <NavDropdown
-              title="Servicios"
-              id="basic-nav-dropdown"
-              menuVariant="dark"
-            >
+          <Nav className="ms-auto">
+            <NavDropdown title="SERVICIOS" id="basic-nav-dropdown" menuVariant="dark">
               <NavDropdown.Item as={Link} to="/servicios/maquinas">
-                Máquinas
+                MAQUINAS
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/servicios/clases"
-              ></NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/servicios/clases">
+                CLASES
+              </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link as={Link} to="/contacto">
-              Contacto
+              CONTACTO
             </Nav.Link>
-          </Nav>
-          <Nav className="ms-auto">
             <Nav.Link as={Link} to="/cliente">
               <Button variant="warning">Área Cliente</Button>
             </Nav.Link>
