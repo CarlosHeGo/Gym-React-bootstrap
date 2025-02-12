@@ -7,16 +7,18 @@ export const ServiciosProvider = ({ children }) => {
   const [clases, setClases] = useState([]);
 
   useEffect(() => {
-    fetch("/servicios.json") // Cargar desde `public/`
-      .then(response => response.json())
-      .then(data => {
-        setMaquinas(data.maquinas);
-        setClases(data.clases);
-      })
-      .catch(error => console.error("Error cargando servicios:", error));
-  }, []);
+    const fetchData = async () => {
+      const response = await fetch('/servicios.json');
+      const data = await response.json();
+    
+    setMaquinas(data.maquinas);
+    setClases(data.clases);
+    }
 
-  // ✅ Función para reservar una clase
+    fetchData()
+    
+  },[]);
+
   const reservarClase = (claseID, diaId, horaId) => {
     setClases((prevClases) =>
       prevClases.map((clase) => {
@@ -43,7 +45,6 @@ export const ServiciosProvider = ({ children }) => {
     );
   };
 
-  // ✅ Función para reservar una máquina
   const reservarMaquina = (maquinaID, diaId, horaId) => {
     setMaquinas((prevMaquinas) =>
       prevMaquinas.map((maquina) => {
