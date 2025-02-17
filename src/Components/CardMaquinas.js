@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Container, Col, Row, Card, Button, Modal, ListGroup } from "react-bootstrap";
 import { ServiciosContext } from "./ServiciosProvider";
+import '../Styles/cards.css';
 
 const CardMaquinas = () => {
   const { maquinas, reservarMaquina } = useContext(ServiciosContext);
@@ -46,8 +47,8 @@ const CardMaquinas = () => {
             <Card bg="dark" text="white">
               <Card.Img variant="top" src={`/${maquina.foto}`} alt={maquina.nombre} />
               <Card.Body>
-                <Card.Title>{maquina.nombre}</Card.Title>
-                <Card.Text>
+                <Card.Title className="card-title">{maquina.nombre}</Card.Title>
+                <Card.Text className="card-text">
                   <strong>Descripción: </strong>
                   {maquina.descripcion}
                 </Card.Text>
