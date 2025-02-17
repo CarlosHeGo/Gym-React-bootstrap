@@ -13,25 +13,13 @@ function AreaCliente() {
         position: "relative",
       }}
     >
-      {/* Capa de oscurecimiento */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          background: "rgba(0, 0, 0, 0.5)",
-        }}
-      ></div>
-
       <Container className="position-relative">
         <Row className="justify-content-center">
           <Col md={10} lg={8}>
             <Card
               className="p-4"
               style={{
-                background: "rgba(0, 0, 0, 0.6)",
+                background: "rgba(0, 0, 0, 0.5)",
                 borderRadius: "20px",
                 color: "white",
                 display: "flex",
@@ -40,13 +28,19 @@ function AreaCliente() {
             >
               <Row className="g-0 align-items-center">
                 <Col lg={6} className="p-4">
-                  <h2 className="text-center mb-4" style={{ fontSize: "1.8rem", fontWeight: "bold" }}>
+                  <h2
+                    className="text-center mb-4"
+                    style={{ fontSize: "1.8rem", fontWeight: "bold" }}
+                  >
                     INICIAR SESIÓN
                   </h2>
                   <Form>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                       <Form.Label>Email</Form.Label>
-                      <Form.Control type="email" placeholder="Introduce tu email" />
+                      <Form.Control
+                        type="email"
+                        placeholder="Introduce tu email"
+                      />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupPassword">
                       <Form.Label>Contraseña</Form.Label>
@@ -59,7 +53,9 @@ function AreaCliente() {
                         </Form.Group>
                       </Col>
                       <Col className="text-end">
-                        <a href="404" className="text-light">Olvidaste tu contraseña?</a>
+                        <a href="404" className="text-light">
+                          Olvidaste tu contraseña?
+                        </a>
                       </Col>
                     </Row>
                     <Button
@@ -76,7 +72,10 @@ function AreaCliente() {
                       Inicia Sesión
                     </Button>
                     <p className="text-center mt-3">
-                      ¿No tienes cuenta? <a href="404" className="text-warning">Crea una</a>
+                      ¿No tienes cuenta?{" "}
+                      <a href="404" className="text-warning">
+                        Crea una
+                      </a>
                     </p>
                   </Form>
                 </Col>
