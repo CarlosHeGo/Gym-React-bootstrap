@@ -1,0 +1,19 @@
+.card-text {
+    margin: 4%;
+    text-align: justify;
+    height: 5vw;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+    word-break: break-word;
+    font-size: 0.9em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 1.5em;
+}
