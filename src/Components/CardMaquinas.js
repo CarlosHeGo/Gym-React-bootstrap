@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Container, Col, Row, Card, Button, Modal, ListGroup } from "react-bootstrap";
 import { ServiciosContext } from "./ServiciosProvider";
-import '../Styles/cards.css';
+import "../Styles/cards.css";
 
 const CardMaquinas = () => {
   const { maquinas, reservarMaquina } = useContext(ServiciosContext);
@@ -28,9 +28,7 @@ const CardMaquinas = () => {
           ? {
               ...dia,
               horas: dia.horas.map((hora) =>
-                hora.hora === horaId && hora.plazas > 0
-                  ? { ...hora, plazas: hora.plazas - 1 }
-                  : hora
+                hora.hora === horaId && hora.plazas > 0 ? { ...hora, plazas: hora.plazas - 1 } : hora
               ),
             }
           : dia
@@ -45,7 +43,7 @@ const CardMaquinas = () => {
         {maquinas.map((maquina) => (
           <Col key={maquina.id} md={3} className="mb-4">
             <Card bg="dark" text="white">
-              <Card.Img variant="top" src={`/${maquina.foto}`} alt={maquina.nombre} />
+              <Card.Img variant="top" src={`/${maquina.foto}`} alt={maquina.nombre} style={{ height: "300px" }} />
               <Card.Body>
                 <Card.Title className="card-title">{maquina.nombre}</Card.Title>
                 <Card.Text className="card-text">
@@ -53,7 +51,7 @@ const CardMaquinas = () => {
                   {maquina.descripcion}
                 </Card.Text>
               </Card.Body>
-              <Button variant="primary" onClick={() => handleShow(maquina)}>
+              <Button variant="warning" onClick={() => handleShow(maquina)}>
                 Horarios
               </Button>
             </Card>
@@ -72,10 +70,7 @@ const CardMaquinas = () => {
                 <h5>{dia.dia}</h5>
                 <ListGroup>
                   {dia.horas.map((hora) => (
-                    <ListGroup.Item
-                      key={hora.hora}
-                      className="d-flex justify-content-between align-items-center"
-                    >
+                    <ListGroup.Item key={hora.hora} className="d-flex justify-content-between align-items-center">
                       <span>{hora.hora}</span>
                       <span>{hora.plazas} plazas disponibles</span>
                       <Button

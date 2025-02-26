@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import Navegacion from "./Navegacion";
+import Footer from "./Footer";
 
 const Layout = () => {
   return (
@@ -10,20 +11,11 @@ const Layout = () => {
         <Navegacion />
       </header>
       <main>
-        <Container>
-          <Row>
-            <Col>
-              <Outlet />
-            </Col>
-          </Row>
-        </Container>
+        <Outlet />
       </main>
-      <footer className="text-center py-4">
-        <p>TODO: Implementar footer como componente.</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
 
 export default Layout;
-

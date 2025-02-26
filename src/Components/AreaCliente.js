@@ -5,7 +5,7 @@ function AreaCliente() {
     <div
       className="d-flex align-items-center justify-content-center"
       style={{
-        backgroundImage: "url('/fondoareacliente.png')",
+        backgroundImage: "url('/fondoInicioSesion.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -28,31 +28,25 @@ function AreaCliente() {
             >
               <Row className="g-0 align-items-center">
                 <Col lg={6} className="p-4">
-                  <h2
-                    className="text-center mb-4"
-                    style={{ fontSize: "1.8rem", fontWeight: "bold" }}
-                  >
+                  <h2 className="text-center mb-4" style={{ fontSize: "1.8rem", fontWeight: "bold" }}>
                     INICIAR SESIÓN
                   </h2>
                   <Form>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                       <Form.Label>Email</Form.Label>
-                      <Form.Control
-                        type="email"
-                        placeholder="Introduce tu email"
-                      />
+                      <Form.Control type="email" placeholder="Introduce tu email" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupPassword">
                       <Form.Label>Contraseña</Form.Label>
                       <Form.Control type="password" placeholder="Contraseña" />
                     </Form.Group>
                     <Row className="align-items-center">
-                      <Col xs={7}>
+                      <Col xs={5}>
                         <Form.Group className="mb-3">
                           <Form.Check type="checkbox" label="Recuérdame" />
                         </Form.Group>
                       </Col>
-                      <Col className="text-end">
+                      <Col className="text-end mb-3">
                         <a href="404" className="text-light">
                           Olvidaste tu contraseña?
                         </a>
